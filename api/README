@@ -1,0 +1,7 @@
+# Orientações para utilização:
+ter o php e o composer instalados
+
+criar o banco de dados através do arquivo script.sql
+executar: 
+composer install
+composer start

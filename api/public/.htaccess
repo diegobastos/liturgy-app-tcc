@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Redireciona URLs com trailing slash para a versão sem trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Redireciona todas as requisições não correspondentes a arquivos existentes/diretórios existentes para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Redireciona para index.php se a requisição terminar com uma extensão comum de arquivo
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)\.(html|php|txt|xml|json)$ index.php [QSA,L]
